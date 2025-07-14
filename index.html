@@ -9,14 +9,7 @@
     <div class="animated-dots"></div>
     <header>
         <h1>🌿 Bio Eco Corner</h1>
-        <div class="logo-row">
-  <img src="sjacs-badge-removebg-preview.png" alt="School Logo" class="logo">
-  <img src="Screenshot_2025-07-14_221717-removebg-preview.png" alt="Bio Eco Corner Logo" class="logo">
-</div>
         <p>Explore the wonders of biodiversity—meet animals from rainforests, deserts, and beyond!</p>
-        <div style="margin-top: 1rem;">
-  <a href="index.html" class="home-button">🏠 Back to Home</a>
-</div>
         <nav>
             <label for="animal-select">Learn About:</label>
             <select id="animal-select" onchange="redirectToPage(this.value)">
@@ -26,7 +19,42 @@
                 <option value="caique.html">White-Bellied Caique</option>
             </select>
         </nav>
-    </header>
+        
+  <!-- Left Logo -->
+  <img
+    src="images/Screenshot_2025-07-14_221717-removebg-preview.png"
+    alt="School Logo"
+    class="logo left-logo"
+  />
+
+  <!-- Centered Title & Nav -->
+  <div class="header-center">
+    <h1>:herb: Bio Eco Corner</h1>
+    <p>Explore the wonders of biodiversity—meet animals from rainforests, deserts, and beyond!</p>
+    <nav>
+      <label for="animal-select">Learn About:</label>
+      <select id="animal-select" onchange="redirectToPage(this.value)">
+        <option value="">-- Select an Animal --</option>
+        <option value="water-dragon.html">Chinese Water Dragon</option>
+        <option value="bearded-dragon.html">Bearded Dragon</option>
+        <option value="caique.html">White-Bellied Caique</option>
+      </select>
+    </nav>
+
+    <!-- Home Button -->
+    <div style="margin-top: 1rem;">
+      <a href="index.html" class="home-button">:house: Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Right Logo -->
+  <img
+    src="images/sjacs-badge-removebg-preview.png"
+    alt="Corner Logo"
+    class="logo right-logo"
+  />
+
+</header>
 
     <section id="welcome">
         <h2>🐾 Welcome to Your Eco Exploration</h2>
