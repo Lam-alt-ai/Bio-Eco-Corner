@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bio Eco Corner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🌿 Bio Eco Corner</h1>
+        <p>Explore the wonders of biodiversity—meet animals from rainforests, deserts, and beyond!</p>
+
+        <nav>
+            <label for="animal-select">Learn About:</label>
+            <select id="animal-select" onchange="redirectToPage(this.value)">
+                <option value="">-- Select an Animal --</option>
+                <option value="water-dragon.html">Chinese Water Dragon</option>
+                <option value="bearded-dragon.html">Bearded Dragon</option>
+                <option value="caique.html">White-Bellied Caique</option>
+            </select>
+        </nav>
+    </header>
+
+    <section id="welcome">
+        <h2>🐾 Welcome to Your Eco Exploration</h2>
+        <p>This corner celebrates Earth's biodiversity—click through the menu to discover unique species, fun facts, and the ecosystems they call home.</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Bio Eco Corner. Celebrate biodiversity!</p>
+    </footer>
+
+    <script>
+        function redirectToPage(url) {
+            if (url) {
+                window.location.href = url;
+            }
+        }
+    </script>
+</body>
+</html>
