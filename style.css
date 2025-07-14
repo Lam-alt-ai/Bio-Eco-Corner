@@ -1,228 +1,154 @@
 /* ==========================================================================
-   Bio Eco Corner • Enhanced Stylesheet
+   Bio Eco Corner — Refined Stylesheet
    ========================================================================== */
 
-/* 1. Import Google Fonts */
+/* 1. Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500&display=swap');
 
-/* 2. Root Variables */
+/* 2. CSS Variables */
 :root {
-  --color-bg-start:   #e6f3ec;
-  --color-bg-end:     #cdebdc;
-  --color-primary:    #2e7d32;
-  --color-accent:     #81c784;
-  --color-text:       #2c3e50;
-  --color-light:      #ffffff;
-  --color-shadow:     rgba(0, 0, 0, 0.1);
-  --transition-fast:  0.2s ease-out;
-  --transition-slow:  0.6s ease-out;
-  --card-elevation:   0 6px 12px rgba(0, 0, 0, 0.15);
+  --clr-primary:    #2e7d32;
+  --clr-accent:     #81c784;
+  --clr-bg-light:   #f9fdf9;
+  --clr-bg:         #e6f3ec;
+  --clr-text:       #2c3e50;
+  --clr-white:      #ffffff;
+  --transition:     0.25s ease;
+  --max-width:      800px;
 }
 
-/* 3. Global Reset & Base */
+/* 3. Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
 }
-
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
-  color: var(--color-text);
-  min-height: 100vh;
+  background: var(--clr-bg);
+  color: var(--clr-text);
   line-height: 1.6;
-  overflow-x: hidden;
+}
+a {
+  color: var(--clr-primary);
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* Smooth fade-in on load */
-body {
-  opacity: 0;
-  animation: fadeIn var(--transition-slow) forwards;
+/* 4. Container */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding-bottom: 2rem;
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* ==========================================================================
-   Header & Navigation
-   ========================================================================== */
+/* 5. Header & Nav */
 header {
-  background: var(--color-primary);
-  color: var(--color-light);
+  background: var(--clr-primary);
+  color: var(--clr-white);
   text-align: center;
   padding: 2rem 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 6px var(--color-shadow);
-  transform: translateY(-100%);
-  animation: slideDown var(--transition-slow) 0.3s forwards;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-@keyframes slideDown {
-  to { transform: translateY(0); }
-}
-
 header h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
-
 header p {
-  font-size: 1.1rem;
   font-weight: 500;
 }
-
 nav {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
-
-nav label {
-  font-weight: 500;
-  margin-right: 0.5rem;
-}
-
 nav select {
+  width: 100%;
+  max-width: 300px;
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  border: none;
+  border: 2px solid var(--clr-white);
   border-radius: 4px;
-  background-color: var(--color-light);
-  color: var(--color-text);
+  background: var(--clr-white);
+  color: var(--clr-text);
   cursor: pointer;
-  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  transition: border-color var(--transition), transform var(--transition);
+}
+nav select:hover {
+  border-color: var(--clr-accent);
+  transform: scale(1.02);
 }
 
-nav select:hover,
-nav select:focus {
-  background-color: var(--color-accent);
-  color: var(--color-light);
-  transform: scale(1.03);
-  outline: none;
-}
-
-/* ==========================================================================
-   Section: Animals
-   ========================================================================== */
-section#animals {
-  max-width: 960px;
-  margin: 2.5rem auto;
-  padding: 0 1rem;
-}
-
-section#animals h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+/* 6. Welcome Section (Homepage only) */
+#welcome {
+  margin: 2rem 0;
   text-align: center;
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-  position: relative;
 }
-
-section#animals h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: var(--color-accent);
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
-
-/* Animal Grid for wider screens */
-@media (min-width: 700px) {
-  section#animals {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* Animal Card */
-.animal-card {
-  background-color: var(--color-light);
-  border-left: 6px solid var(--color-accent);
-  border-radius: 8px;
-  box-shadow: 0 2px 5px var(--color-shadow);
-  overflow: hidden;
-  padding: 2rem 1.5rem;
-  margin-bottom: 2rem;
-  position: relative;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.animal-card::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 80px;
-  height: 80px;
-  background: var(--color-accent);
-  opacity: 0.1;
-  border-radius: 50%;
-}
-
-.animal-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: var(--card-elevation);
-}
-
-.animal-card h3 {
+#welcome h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  color: var(--color-primary);
+  font-size: 2rem;
+  color: var(--clr-primary);
   margin-bottom: 0.5rem;
 }
-
-.animal-card p {
-  margin: 0.6rem 0;
+#welcome p {
+  font-size: 1.1rem;
 }
 
-.animal-card p strong {
-  color: var(--color-primary);
+/* 7. Animal Content Section */
+section {
+  background: var(--clr-bg-light);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--clr-primary);
+  margin-bottom: 1rem;
+  position: relative;
+}
+section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--clr-accent);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+section p {
+  margin-bottom: 1rem;
 }
 
-/* Floating animation on cards */
-.animal-card {
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-  0%, 100%   { transform: translateY(0)    translateX(0); }
-  50%        { transform: translateY(-8px) translateX(2px); }
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
+/* 8. Footer */
 footer {
-  background-color: #388e3c;
-  color: var(--color-light);
+  background: var(--clr-accent);
+  color: var(--clr-white);
   text-align: center;
-  padding: 1.5rem 1rem;
-  margin-top: 3rem;
-  box-shadow: 0 -2px 5px var(--color-shadow);
+  padding: 1rem 0;
+  border-radius: 0 0 8px 8px;
   font-size: 0.9rem;
 }
 
-/* ==========================================================================
-   Utility & Accessibility
-   ========================================================================== */
-[id] {
-  scroll-margin-top: 100px;   /* offset for sticky header */
-}
-
-.text-center {
-  text-align: center;
-}
-[id] {
-  scroll-margin-top: 100px;
+/* 9. Responsive Typography */
+@media (min-width: 600px) {
+  header h1 {
+    font-size: 3rem;
+  }
+  #welcome h2, section h2 {
+    font-size: 2.2rem;
+  }
+  section p, header p, #welcome p {
+    font-size: 1.1rem;
+  }
 }
