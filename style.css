@@ -41,7 +41,14 @@ img {
   max-width: 100%;
   display: block;
 }
-
+img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 1rem 0;
+}
 /* 4. Container */
 .container {
   width: 90%;
