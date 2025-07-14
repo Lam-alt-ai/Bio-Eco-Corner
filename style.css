@@ -152,3 +152,18 @@ footer {
     font-size: 1.1rem;
   }
 }
+.home-button {
+  display: inline-block;
+  background-color: #81c784;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.home-button:hover {
+  background-color: #66bb6a;
+}
